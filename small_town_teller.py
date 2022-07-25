@@ -5,11 +5,14 @@ small town teller example for zip code wilmington
 
 
 class Person:
+    id_count = 1
 
     def __init__(self, name):
         #  id_num: int, first_name: str, last_name: str
         self.name = name
         # person_id = id_num
+        Person.id_count += 1
+        self.person_id = Person.id_count
         # first_name = first_name
         # last_name = last_name
 
@@ -21,7 +24,24 @@ class Account:
         # account_num = id_num
         # account_type = type
         # account_owner = owner
+        self.account_owner = None
+        self.account_num = 0
+        self.account_type = None
         self.balance = 0.0
+
+    def create_account(self, account_id: int, type: str, name: Person):
+        self.account_num = account_id
+        self.account_type = type
+        self.account_owner = name
+        # pass  # escape pass
+
+    def add_account(self):
+        pass
+
+    def get_id(self, id_num):
+
+        return
+        pass
 
 
 class Bank:
@@ -32,9 +52,8 @@ class Bank:
         self.name = name
         self.account_id = account_id
 
-
-    def add_customer(self, customer_id: Person):
-
+    def add_customer(self, customer_id: Account):
+        pass
 
     def add_account(self, account_id: int):
         pass
@@ -43,8 +62,9 @@ class Bank:
         return None
 
     def deposit_funds(self, account_id: int, deposit: float):
-
+        Account = Account.get_id(account_id)
         Account.balance += deposit
+        print("Deposit Amount: ", deposit)
         # pass  # escape return
 
     def withdraw_funds(self, account_id: int, withdraw: float):
