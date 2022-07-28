@@ -13,8 +13,8 @@ class Person:
         # person_id = id_num
         Person.id_count += 1
         self.person_id = Person.id_count
-        # first_name = first_name
-        # last_name = last_name
+        # self.first_name = first_name
+        # self.last_name = last_name
 
 
 class Account:
@@ -48,14 +48,23 @@ class Bank:
     """
     this might end us as an interface
     """
-    def __init__(self, name, account_id):
+    #
+    customers = {}
+    accounts = {}
+    def __init__(self):
         self.name = name
         self.account_id = account_id
 
     def add_customer(self, customer_id: Account):
+        if Person.id in self.customers:
+            print("")
+        else:
+            self.person[Person.id] = Person
         pass
 
     def add_account(self, account_id: int):
+        if account.owner.id
+
         pass
 
     def remove_account(self, account_id: int) -> None:
@@ -76,5 +85,9 @@ class Bank:
         # pass  # escape return
 
     def get_balance(self, account_id: int):
-
+        if account_id in self.account:
+            balance = self.account.get(account_id).balance
+            return balance
+        else:
+            print('')
         pass  # escape return
