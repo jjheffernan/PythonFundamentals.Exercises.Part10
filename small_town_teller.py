@@ -29,31 +29,37 @@ class Account:
         self.account_type = None
         self.balance = 0.0
 
-    def create_account(self, account_id: int, type: str, name: Person):
-        self.account_num = account_id
-        self.account_type = type
-        self.account_owner = name
-        # pass  # escape pass
-
-    def add_account(self):
-        pass
+    def get_account_owner(self):
+        # return Account Owner Name
+        return self.account_owner
+        # pass
 
     def get_id(self, id_num):
+        # return Account ID number
+        return self.account_num
+        # pass
 
-        return
-        pass
+    def get_type(self, id_num):
+        # return Account type String
+        return self.account_type
+
+    def get_balance(self, id_num):
+        # return Account Numerical Balance
+        return self.balance
 
 
 class Bank:
     """
-    this might end us as an interface
+    this might end up as an interface
     """
-    #
-    customers = {}
-    accounts = {}
+    # dict of customers/ customer ID/ Account IDs
+    customers = {'Person': [], 'Banker_ID': [], 'Accounts': []}
+    # dict of account information and Owner ID
+    accounts = {'number': [], 'type': [], 'owner': [], 'balance': []}
+
     def __init__(self):
-        self.name = name
-        self.account_id = account_id
+        self.name = bank_name
+        # self.account_id = account_id
 
     def add_customer(self, customer_id: Account):
         if Person.id in self.customers:
@@ -62,9 +68,16 @@ class Bank:
             self.person[Person.id] = Person
         pass
 
-    def add_account(self, account_id: int):
-        if account.owner.id
+    def create_account(self, account_id: int, ac_type: str, name: Person):
+        Account.account_num = account_id
+        Account.account_type = ac_type
+        Account.account_owner = name
+        # pass  # escape pass
 
+    def add_account(self, account_id: int):
+        # if account.owner.id
+        owner_id = account_id
+        self.accounts['number'].append(owner_id)
         pass
 
     def remove_account(self, account_id: int) -> None:
