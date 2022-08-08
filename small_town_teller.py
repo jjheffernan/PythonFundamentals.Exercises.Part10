@@ -16,17 +16,31 @@ class Person:
         # self.first_name = first_name
         # self.last_name = last_name
 
+    def create_person(self, id_num, first_name, last_name):
+        self.person_id = id_num
+        self.name = first_name + last_name
+
 
 class Account:
+    # dict of account information and Owner ID
+    acc_dict = {'number': [], 'type': [], 'owner': [], 'balance': []}
 
     def __init__(self):
         # id_num: int, type: str, owner: Person
         # account_num = id_num
         # account_type = type
         # account_owner = owner
+
+        # add owner name string to accoutn dictionary
         self.account_owner = None
+
+        # add personal ID string to account dictionary
         self.account_num = 0
+
+        # declare account type
         self.account_type = None
+
+        # declare starting balance, default set to 0
         self.balance = 0.0
 
     def get_account_owner(self):
@@ -58,8 +72,9 @@ class Bank:
     accounts = {'number': [], 'type': [], 'owner': [], 'balance': []}
 
     def __init__(self):
-        self.name = bank_name
+        # self.name = bank_name
         # self.account_id = account_id
+        pass
 
     def add_customer(self, customer_id: Account):
         if Person.id in self.customers:
@@ -77,10 +92,15 @@ class Bank:
     def add_account(self, account_id: int):
         # if account.owner.id
         owner_id = account_id
+        # add call to get owner name
         self.accounts['number'].append(owner_id)
-        pass
+        print(f'added account #{owner_id} to {account_id}')
+        # above is incorrect, need to call variable for owner separately
+        # pass # escape pass
 
     def remove_account(self, account_id: int) -> None:
+        owner_id = account_id
+        self.accounts['number'].remove(owner_id)
         return None
 
     def deposit_funds(self, account_id: int, deposit: float):
@@ -104,3 +124,5 @@ class Bank:
         else:
             print('')
         pass  # escape return
+
+
